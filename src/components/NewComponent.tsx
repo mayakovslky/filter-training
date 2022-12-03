@@ -17,8 +17,6 @@ type NewComponentType = {
     topCars: TopCarsType[]
 }
 
-
-
 export const NewComponent = (props: NewComponentType) => {
 
     return (
