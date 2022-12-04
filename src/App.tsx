@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {NewComponent} from "./components/NewComponent";
-import {Button} from "./components/Button";
+import {Button, Button2} from "./components/Button";
 
 function App() {
 
@@ -58,13 +58,19 @@ function App() {
 
     }
 
+    const Button4Foo = (d: string) => {
+        console.log(d)
+    }
+
     return (
         <div>
             {/*<NewComponent students={students} topCars={topCars} />*/}
 
-            <Button name={'MyYoutubeChannel-1'} callBack={() => Button1Foo('im vasya')}/>
-            <Button name={'MyYoutubeChannel-2'} callBack={() => Button2Foo('im vanya')}/>
-            <Button name={'stupidBUTTON'} callBack={Button3Foo}/>
+            {/*<Button name={'MyYoutubeChannel-1'} callBack={() => Button1Foo('im vasya')}/>*/}
+            {/*<Button name={'MyYoutubeChannel-2'} callBack={() => Button2Foo('im vanya')}/>*/}
+            {/*<Button name={'stupidBUTTON'} callBack={Button3Foo}/>*/}
+
+            {/*<Button2 name={'DELETE'} callBack={() => Button4Foo('delete')}/>*/}
 
             {/*<button onClick={(event) => onClickHandler('vasya')}>MyYoutubeChannel-1</button>*/}
             {/*<button onClick={(event) => onClickHandler('vanya')}>MyYoutubeChannel-2</button>*/}
