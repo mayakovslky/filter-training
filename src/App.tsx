@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {NewComponent} from "./components/NewComponent";
 import {Button, Button2} from "./components/Button";
@@ -18,13 +18,11 @@ function App() {
     //     {id: 10, name: "Charles", age: 98},
     //     {id: 11, name: "Christopher", age: 100},
     // ]
-
     // const topCars = [
     //     {manufacturer: "BMW", model: 'm5cs'},
     //     {manufacturer: "Mercedes", model: 'e63s'},
     //     {manufacturer: "Audi", model: 'rs6'}
     // ]
-
     // const myFirstSubscriber = (event: MouseEvent<HTMLButtonElement, MouseEvent>) => {
     //     console.log('im vasya')
     // }
@@ -32,51 +30,74 @@ function App() {
     // const mySecondSubscriber = () => {
     //     console.log('im ivan')
     // }
-
     // const onClickHandler = (name: string) => {
     //         console.log(name)
     // }
-
     // const foo1 = () => {
     //     console.log(100200)
     // }
     // const foo2 = (n: number) => {
     //     console.log(n);
     // }
+    // const Button1Foo = (subscriber: string) => {
+    //     console.log(subscriber)
+    // }
+    //
+    // const Button2Foo = (subscriber: string) => {
+    //     console.log(subscriber)
+    //
+    // }
+    //
+    // const Button3Foo = () => {
+    //     console.log('im stupid button')
+    //
+    // }
+    //
+    // const Button4Foo = (d: string) => {
+    //     console.log(d)
+    // }
 
-    const Button1Foo = (subscriber: string) => {
-        console.log(subscriber)
+    // let a = 1;
+    let[a, setA] = useState(1)
+
+    const onClickHandler = () => {
+        setA(++a)
     }
 
-    const Button2Foo = (subscriber: string) => {
-        console.log(subscriber)
-
+    const onClickHandler2 = () => {
+        setA(a = 0)
     }
 
-    const Button3Foo = () => {
-        console.log('im stupid button')
-
+    const onClickHandler3 = () => {
+        setA(--a)
     }
 
-    const Button4Foo = (d: string) => {
-        console.log(d)
-    }
 
     return (
         <div>
-            {/*<NewComponent students={students} topCars={topCars} />*/}
+            <>
+                {/*<NewComponent students={students} topCars={topCars} />*/}
+            </>
+            <>
+                {/*<Button name={'MyYoutubeChannel-1'} callBack={() => Button1Foo('im vasya')}/>*/}
+                {/*<Button name={'MyYoutubeChannel-2'} callBack={() => Button2Foo('im vanya')}/>*/}
+                {/*<Button name={'stupidBUTTON'} callBack={Button3Foo}/>*/}
 
-            {/*<Button name={'MyYoutubeChannel-1'} callBack={() => Button1Foo('im vasya')}/>*/}
-            {/*<Button name={'MyYoutubeChannel-2'} callBack={() => Button2Foo('im vanya')}/>*/}
-            {/*<Button name={'stupidBUTTON'} callBack={Button3Foo}/>*/}
+                {/*<Button2 name={'DELETE'} callBack={() => Button4Foo('delete')}/>*/}
 
-            {/*<Button2 name={'DELETE'} callBack={() => Button4Foo('delete')}/>*/}
+                {/*<button onClick={(event) => onClickHandler('vasya')}>MyYoutubeChannel-1</button>*/}
+                {/*<button onClick={(event) => onClickHandler('vanya')}>MyYoutubeChannel-2</button>*/}
 
-            {/*<button onClick={(event) => onClickHandler('vasya')}>MyYoutubeChannel-1</button>*/}
-            {/*<button onClick={(event) => onClickHandler('vanya')}>MyYoutubeChannel-2</button>*/}
+                {/*<button onClick={foo1}>1</button>*/}
+                {/*<button onClick={(event) =>foo2(100200)}>2</button>*/}
+            </>
 
-            {/*<button onClick={foo1}>1</button>*/}
-            {/*<button onClick={(event) =>foo2(100200)}>2</button>*/}
+            <div>
+                <h1>{a}</h1>
+                <button onClick={onClickHandler}>+</button>
+                <button onClick={onClickHandler2}>null</button>
+                <button onClick={onClickHandler3}>-</button>
+            </div>
 
 
         </div>
