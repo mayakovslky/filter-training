@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import {NewComponent} from "./components/NewComponent";
-import {Button, Button2} from "./components/Button";
+import {Button, Button2, Buttons} from "./components/Button";
 
 function App() {
 
@@ -57,22 +57,6 @@ function App() {
     //     console.log(d)
     // }
 
-    // let a = 1;
-    let[a, setA] = useState(1)
-
-    const onClickHandler = () => {
-        setA(++a)
-    }
-
-    const onClickHandler2 = () => {
-        setA(a = 0)
-    }
-
-    const onClickHandler3 = () => {
-        setA(--a)
-    }
-
-
     return (
         <div>
             <>
@@ -91,13 +75,9 @@ function App() {
                 {/*<button onClick={foo1}>1</button>*/}
                 {/*<button onClick={(event) =>foo2(100200)}>2</button>*/}
             </>
-
-            <div>
-                <h1>{a}</h1>
-                <button onClick={onClickHandler}>+</button>
-                <button onClick={onClickHandler2}>null</button>
-                <button onClick={onClickHandler3}>-</button>
-            </div>
+            <>
+                <Buttons/>
+            </>
 
 
         </div>
