@@ -1,7 +1,16 @@
 import React, {useState} from 'react';
 import './App.css';
-import {NewComponent} from "./components/NewComponent";
-import {Button, Button2, Buttons} from "./components/Button";
+import {Component} from "./components/NewComponent";
+// import {NewComponent} from "./components/NewComponent";
+// import {Button, Button2, Buttons} from "./components/Button";
+
+export type FilterType = 'all' | 'Dollars' | 'ruble'
+
+export type CurrentMoneyType = {
+    banknots: string
+    nominal: number
+    number: string
+}
 
 function App() {
 
@@ -57,8 +66,32 @@ function App() {
     //     console.log(d)
     // }
 
+    const [money, setMoney] = useState<Array<CurrentMoneyType>>([
+        {banknots: 'Dollars', nominal: 100, number: ' a1234567890'},
+        {banknots: 'Dollars', nominal: 50, number: ' z1234567890'},
+        {banknots: 'ruble', nominal: 100, number: ' w1234567890'},
+        {banknots: 'Dollars', nominal: 100, number: ' e1234567890'},
+        {banknots: 'Dollars', nominal: 50, number: ' c1234567890'},
+        {banknots: 'ruble', nominal: 100, number: ' r1234567890'},
+        {banknots: 'Dollars', nominal: 50, number: ' x1234567890'},
+        {banknots: 'ruble', nominal: 50, number: ' v1234567890'},
+    ])
+
+    const[filter, setFilter] = useState<FilterType>('all')
+
+    let currentMoney = money;
+    if (filter === 'Dollars') {
+        currentMoney = money.filter((r) => r.banknots === 'Dollars');
+    }
+    if (filter === 'ruble') {
+        currentMoney = money.filter((r) => r.banknots === 'ruble');
+    }
+    const onClickHandler = (n: FilterType) => {
+        setFilter(n)
+    }
+
     return (
-        <div>
+        <>
             <>
                 {/*<NewComponent students={students} topCars={topCars} />*/}
             </>
@@ -76,12 +109,13 @@ function App() {
                 {/*<button onClick={(event) =>foo2(100200)}>2</button>*/}
             </>
             <>
-                <Buttons/>
+                {/*<Buttons/>*/}
             </>
-
-
-        </div>
+            <>
+                <Component currentMoney={currentMoney} onClickHandler={onClickHandler}/>
+            </>
+        </>
     );
 }
 
-export default App;
+    export default App;

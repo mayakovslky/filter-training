@@ -1,4 +1,6 @@
 import React from "react";
+import {CurrentMoneyType, FilterType} from "../App";
+
 
 type StudentsType = {
     id: number
@@ -34,12 +36,47 @@ export const NewComponent = (props: NewComponentType) => {
                 {props.topCars.map((c, index) => {
                     return (
                         <th key={index}>
-                                <tr>{c.manufacturer}</tr>
+                            <tr>{c.manufacturer}</tr>
                             <tr>{c.model}</tr>
                         </th>
                     )
                 })}
             </ul>
+        </>
+    )
+}
+
+
+//////////////////////////////////////////////////////////////////
+
+type PropsType = {
+    currentMoney: CurrentMoneyType[]
+    onClickHandler: (filter: FilterType) => void
+}
+
+export const Component = (props: PropsType) => {
+
+    const {currentMoney, onClickHandler} = props
+
+    return (
+        <>
+            <ul>
+                {currentMoney.map((o, index) => {
+                    return (
+                        <li key={index}>
+                            <span> {o.banknots}</span>
+                            <span> {o.nominal}</span>
+                            <span> {o.number}</span>
+                        </li>
+                    )
+                })}
+            </ul>
+
+            <div style={{marginLeft: '35px'}}>
+                <button onClick={(event) => onClickHandler('all')}>all</button>
+                <button onClick={(event) => onClickHandler('ruble')}>ruble</button>
+                <button onClick={(event) => onClickHandler('Dollars')}>dollar</button>
+            </div>
         </>
     )
 }
